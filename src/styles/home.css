@@ -1,0 +1,54 @@
+.home {
+    padding: 1rem;
+}
+
+.product-card-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.product-card {
+    border: 1px solid #CCCCCC;
+    border-radius: 1rem;
+    width: 400px;
+    height: 450px;
+    position: relative;;
+}
+
+.product-card > h3 {
+    border-top: 1px solid #CCCCCC;
+    font-size: 1.2rem;
+    padding-top: .5rem;
+    padding-left: .5rem;
+}
+
+.product-card > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.product-card > div > img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.product-card > h5,
+.product-card > p {
+  padding-left: .5rem;
+}
+
+.product-card > svg {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 1.2rem;
+    color: red;
+    cursor: pointer;
+}
