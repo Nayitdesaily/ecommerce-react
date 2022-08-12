@@ -1,0 +1,16 @@
+img {
+    width: 100px;
+}
+
+.list-suggestItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style: none;
+    
+}
+
+.list-suggestItem > li {
+    cursor: pointer;
+}

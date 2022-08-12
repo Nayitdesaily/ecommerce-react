@@ -33,7 +33,9 @@ const Home = () => {
    return (
       <div className='home'>
          <Row>
-
+            <div>
+               <p>Filter by Category</p>
+            </div>
             <Col lg={3}>
                <ListGroup>
                   {

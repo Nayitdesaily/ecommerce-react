@@ -1,0 +1,22 @@
+.cart-card {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.list-item > h6{
+    font-size: .9rem;
+}
+
+.list-item > p{
+    font-size: .9rem;
+}

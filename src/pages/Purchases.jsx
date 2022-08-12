@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
 import { getPurchasesThunk } from '../slices/purchases.slice';
 import { useSelector } from 'react-redux';
+import '../styles/purchases.css'
 
 const Purchases = () => {
 
@@ -22,17 +23,18 @@ const Purchases = () => {
     }
 
     return (
-        <div>
+        <div className='purchases'>
             <h1>My purchases</h1>
+            <div className='purchases-card'>
             {
                 purchases.map( purchase => (
-                    <li key={purchase.id}>
+                    <li key={purchase.id} className='list-purchases'>
                         { date ( purchase.updatedAt ) }
                         {
                             purchase.cart.products.map ( purchaseProduct => (
                                 <div key={purchaseProduct.id}>
                                     <h4>{ purchaseProduct.title }</h4>
-                                    <h6>{ purchaseProduct.quantity }</h6>
+                                    <div><h6>{ purchaseProduct.quantity }</h6></div>
                                     <h5>${ purchaseProduct.price }</h5>
                                 </div>
                                 
@@ -42,6 +44,7 @@ const Purchases = () => {
                     
                 ) )
             }
+            </div>
         </div>
     );
 };

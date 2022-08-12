@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux/es/exports';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import '../styles/productDetails.css'
 
 const ProductDetails = () => {
 
@@ -45,11 +46,12 @@ const ProductDetails = () => {
             <Button variant="success">
                Add to Cart <FontAwesomeIcon icon={faShoppingCart} />
             </Button>{' '}
-         </div>
-         <ul>
+         </div><br/>
+         <h5>Suggested Items</h5>
+         <ul className='list-suggestItem'>
             {
                suggestProducts.map(product => (
-                  <li key={product.id} onClick={ () => navigate (`/product/${product.id}`) }>
+                  <li key={product.id} onClick={ () => navigate (`/product/${product.id}`) } >
                      <img src={product.productImgs[2]} />
                   </li>
                ))
