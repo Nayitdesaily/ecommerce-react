@@ -13,14 +13,14 @@
 .product-card {
     border: 1px solid #CCCCCC;
     border-radius: 1rem;
-    width: 400px;
+    width: 310px;
     height: 450px;
     position: relative;;
 }
 
 .product-card > h3 {
     border-top: 1px solid #CCCCCC;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding-top: .5rem;
     padding-left: .5rem;
 }
@@ -50,5 +50,9 @@
     right: 2rem;
     font-size: 1.2rem;
     color: red;
+    cursor: pointer;
+}
+
+.category-list {
     cursor: pointer;
 }

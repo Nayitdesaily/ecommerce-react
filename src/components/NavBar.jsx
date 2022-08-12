@@ -1,23 +1,52 @@
-import React from 'react';
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Navbar, Button, Nav, Offcanvas } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faStore, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faStore, faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import Cart from './Cart';
+
 
 const NavBar = () => {
+
+   const navigate = useNavigate()
+
+   const logOut = () => {
+      localStorage.setItem('token', '')
+      navigate('./login')
+   }
+
+   const [show, setShow] = useState(false);
+   const handleClose = () => {
+      setShow(false)
+   }
+
+   const handleShow = () => {
+      const token = localStorage.getItem('token')
+      if (token) {
+         setShow(true)
+      } else {
+         navigate('/login')
+      }
+   }
+
+
+
    return (
-      <Navbar bg="light" expand="lg">
-         <Container>
-            <Navbar.Brand href="#home">Iphone Ecommerce</Navbar.Brand>
+      <>
+         <Navbar bg="light" expand="lg">
+            <Navbar.Brand href="#/">Iphone Ecommerce</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                <Nav className="me-auto">
-                  <Nav.Link href="#/"><FontAwesomeIcon icon={faHouse} /></Nav.Link>
-                  <Nav.Link href="#/product/1"><FontAwesomeIcon icon={faStore} /></Nav.Link>
-                  <Nav.Link href="#/purchases"><FontAwesomeIcon icon={faCartShopping} /></Nav.Link>
+                  <Nav.Link href="#/login"><FontAwesomeIcon icon={faUser} /></Nav.Link>
+                  <Nav.Link href="#/purchases"><FontAwesomeIcon icon={faStore} /></Nav.Link>
+                  <Nav.Link ><FontAwesomeIcon icon={faCartShopping} onClick={ handleShow }/></Nav.Link>
+                  <Nav.Link  ><Button variant="light" onClick={logOut} >Log out</Button></Nav.Link>
                </Nav>
             </Navbar.Collapse>
-         </Container>
-      </Navbar>
+         </Navbar>
+         <Cart show={ show } handleClose={ handleClose }/>
+      </>
    );
 };
 

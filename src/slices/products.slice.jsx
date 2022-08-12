@@ -27,6 +27,12 @@ export const filterTitleThunk = searchValue => (dispatch) => {
         .then( res => dispatch(setProducts( res.data.data.products )))
 }
 
+export const filterCategoryThunk = id => (dispatch) => {
+    return axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products?category=${id}`)
+        .then(res => dispatch(setProducts( res.data.data.products )))
+
+}
+
 export const { setProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;
